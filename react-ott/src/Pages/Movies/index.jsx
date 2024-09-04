@@ -1,4 +1,6 @@
 import React from "react";
+// Importing the material ui components here
+import { Paper } from "@mui/material";
 // Importing the components here
 import Movies from "./Movies";
 import {
@@ -13,7 +15,9 @@ import {
 const MoviesContainer = () => {
   return (
     <MoviesContextProvider>
-      <Movies />
+      <Paper elevation={0} sx={{ px: 3 }}>
+        <Movies />
+      </Paper>
     </MoviesContextProvider>
   );
 };
