@@ -9,6 +9,7 @@ const layoutStyle = {
   display: "flex",
   flexDirection: "column",
   minHeight: "100vh",
+  marginTop: "60px",
 };
 
 const navbarStyle = {
@@ -25,9 +26,8 @@ export default function AppLayout() {
   return (
     <div style={layoutStyle}>
       {/* Rendering the Navbar component here */}
-      <div style={navbarStyle}>
-        <Navbar />
-      </div>
+
+      <Navbar />
 
       {/* Rendering of child elements below the Navbar */}
       <div style={contentStyle}>

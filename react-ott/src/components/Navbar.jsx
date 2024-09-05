@@ -12,7 +12,7 @@ import Typography from "@mui/material/Typography";
 export default function Navbar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ backgroundColor: "black" }}>
+      <AppBar position="fixed" sx={{ backgroundColor: "black" }}>
         <Toolbar>
           <Typography variant="h5" sx={{ color: "#fff", fontWeight: "500" }}>
             React New OTT Arrivals

@@ -41,9 +41,9 @@ const MoviesContextProvider = ({ children }) => {
   /**
    * UseEffect hook to fetch the data
    */
-  // useEffect(() => {
-  //   fetchMoviesDetails();
-  // }, []);
+  useEffect(() => {
+    fetchMoviesDetails();
+  }, []);
 
   // console.log("API KEY", import.meta.env.RAPID_API_KEY);
   /**
@@ -54,14 +54,14 @@ const MoviesContextProvider = ({ children }) => {
       method: "GET",
       url: "https://ott-details.p.rapidapi.com/advancedsearch",
       params: {
-        start_year: "1970",
-        end_year: "2020",
-        min_imdb: "6",
-        max_imdb: "7.8",
-        genre: "action",
-        language: "english",
-        type: "movie",
-        sort: "latest",
+        start_year: filterFormik?.values?.start_year,
+        end_year: filterFormik?.values?.end_year,
+        min_imdb: filterFormik?.values?.min_imdb,
+        max_imdb: filterFormik?.values?.max_imdb,
+        genre: filterFormik?.values?.genre,
+        language: filterFormik?.values?.language,
+        type: filterFormik?.values?.type,
+        sort: filterFormik?.values?.sort,
         page: "1",
       },
       headers: {
@@ -84,7 +84,9 @@ const MoviesContextProvider = ({ children }) => {
   console.log("Movies Array", moviesData);
 
   return (
-    <MoviesContext.Provider value={{ filterFormik, moviesData }}>
+    <MoviesContext.Provider
+      value={{ filterFormik, moviesData, fetchMoviesDetails }}
+    >
       {children}
     </MoviesContext.Provider>
   );

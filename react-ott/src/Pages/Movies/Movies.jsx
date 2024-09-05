@@ -13,7 +13,7 @@ import { useMoviesContext } from "./MoviesContextProvider";
  */
 const Movies = () => {
   // Consuming the context values of the Movies using the custom page level hook
-  const { filterFormik: formik } = useMoviesContext();
+  const { fetchMoviesDetails } = useMoviesContext();
 
   return (
     <Fragment>
@@ -23,13 +23,14 @@ const Movies = () => {
         </Grid>
       </Grid>
 
-      {/* Rendering the button here */}
+      {/*  Search button to apply the filters */}
       <Grid container pl={1}>
         <Grid size={{ xs: 12 }}>
           <Button
             variant="contained"
             size="small"
             sx={{ textTransform: "none" }}
+            onClick={fetchMoviesDetails}
           >
             Search...
           </Button>
