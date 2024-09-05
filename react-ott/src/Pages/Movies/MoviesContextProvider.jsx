@@ -9,6 +9,7 @@ import React, {
 import axios from "axios";
 import { useFormik } from "formik";
 // Importing the custom components here
+import { useLoader } from "../../Context/LoaderProvider";
 
 //Initializing the form values here
 const initialValues = {
@@ -32,6 +33,9 @@ const MoviesContext = createContext(null);
 
 const MoviesContextProvider = ({ children }) => {
   const [moviesData, setMoviesData] = useState([]); // State to set the movies data here
+
+  // Destructuring the loader here
+  const { showLoader, hideLoader } = useLoader();
   // Initializing the formik for the filter here
   const filterFormik = useFormik({
     initialValues,
@@ -50,6 +54,7 @@ const MoviesContextProvider = ({ children }) => {
    * Function to fetch the movies data from the rapid api
    */
   const fetchMoviesDetails = async () => {
+    showLoader();
     const options = {
       method: "GET",
       url: "https://ott-details.p.rapidapi.com/advancedsearch",
@@ -73,8 +78,10 @@ const MoviesContextProvider = ({ children }) => {
       const response = await axios.request(options);
       if (response) {
         setMoviesData(response?.data?.results); // Setting the movies data here
+        hideLoader();
       } else {
         setMoviesData([]);
+        hideLoader();
       }
     } catch (error) {
       console.error("API ERR", error);
