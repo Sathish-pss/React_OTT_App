@@ -76,7 +76,7 @@ const MoviesContextProvider = ({ children }) => {
     };
     try {
       const response = await axios.request(options);
-      if (response) {
+      if (response?.data) {
         setMoviesData(response?.data?.results); // Setting the movies data here
         hideLoader();
       } else {
