@@ -39,11 +39,13 @@ const MovieCards = () => {
 
                 {/* Movie Names and Genre section */}
                 <Stack direction={"column"} justifyContent={"start"}>
-                  <Typography variant="h6">{data?.title}</Typography>
+                  <Typography variant="h6">{data?.title || "-"}</Typography>
                   {/* Year and Genre section */}
                   <Stack direction={"row"} gap={2}>
                     {/* Year */}
-                    <Typography variant="body2">{data?.released}</Typography>
+                    <Typography variant="body2">
+                      {data?.released || "-"}
+                    </Typography>
                     {/* Genre */}
                     <Typography>
                       {data?.genre?.map((data, index) => (
@@ -59,7 +61,7 @@ const MovieCards = () => {
                             color: "#fff",
                           }}
                         >
-                          {data}
+                          {data || "-"}
                         </Typography>
                       ))}
                     </Typography>
@@ -68,7 +70,10 @@ const MovieCards = () => {
                   <Stack direction={"row"} alignItems={"center"}>
                     <StarIcon sx={{ pr: 1, color: "orange" }} />
                     <Typography variant="body1">
-                      <span>IMDb rating: </span> {data?.imdbrating}
+                      <span style={{ fontWeight: "600", fontSize: "12px" }}>
+                        IMDb rating:{" "}
+                      </span>{" "}
+                      {data?.imdbrating || "N/A"}
                     </Typography>
                   </Stack>
                 </Stack>
@@ -78,7 +83,7 @@ const MovieCards = () => {
             {/* Synopsis section */}
             <Grid size={{ xs: 12 }} mt={1}>
               <Typography variant="body1" fontSize={"small"}>
-                {data?.synopsis}
+                {data?.synopsis || "-"}
               </Typography>
             </Grid>
           </Grid>
