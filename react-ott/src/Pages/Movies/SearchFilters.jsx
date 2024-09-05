@@ -7,6 +7,7 @@ import {
   AccordionDetails,
   Typography,
 } from "@mui/material";
+import Grid from "@mui/material/Grid2";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 // Importing the components here
 import CustomTextField from "../../components/CustomTextField.jsx";
@@ -32,14 +33,35 @@ const SearchFilters = () => {
           <Typography variant="h6">Release year</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <CustomTextField
-            name={"start_year"}
-            value={formik?.values?.start_year}
-            type="number"
-            placeholder={"Enter the start year"}
-            onChange={formik?.handleChange}
-            fullWidth
-          />
+          <Grid container spacing={2}>
+            <Grid size={{ xs: 5 }}>
+              <CustomTextField
+                name={"start_year"}
+                value={formik?.values?.start_year}
+                type="number"
+                placeholder={"e.g. 1975"}
+                onChange={formik?.handleChange}
+                fullWidth
+              />
+            </Grid>
+            {"-"}
+            <Grid size={{ xs: 5 }}>
+              <CustomTextField
+                name={"end_year"}
+                value={formik?.values?.end_year}
+                type="number"
+                placeholder={"e.g. 2020"}
+                onChange={formik?.handleChange}
+                fullWidth
+              />
+            </Grid>
+          </Grid>
+
+          <br />
+
+          <Typography variant="body1" fontSize={"small"} pt={1}>
+            Search movies by entering the start and end years
+          </Typography>
         </AccordionDetails>
       </Accordion>
 
@@ -52,14 +74,29 @@ const SearchFilters = () => {
           <Typography variant="h6">IMDb ratings</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <CustomTextField
-            name={"start_year"}
-            value={formik?.values?.start_year}
-            type="number"
-            placeholder={"Enter the start year"}
-            onChange={formik?.handleChange}
-            fullWidth
-          />
+          <Grid container spacing={2}>
+            <Grid size={{ xs: 5 }}>
+              <CustomTextField
+                name={"min_imdb"}
+                value={formik?.values?.min_imdb}
+                type="number"
+                placeholder={"e.g: 1.0"}
+                onChange={formik?.handleChange}
+                fullWidth
+              />
+            </Grid>
+            {"-"}
+            <Grid size={{ xs: 5 }}>
+              <CustomTextField
+                name={"max_imdb"}
+                value={formik?.values?.max_imdb}
+                type="number"
+                placeholder={"e.g: 10.0"}
+                onChange={formik?.handleChange}
+                fullWidth
+              />
+            </Grid>
+          </Grid>
         </AccordionDetails>
       </Accordion>
 
@@ -73,13 +110,19 @@ const SearchFilters = () => {
         </AccordionSummary>
         <AccordionDetails>
           <CustomTextField
-            name={"start_year"}
-            value={formik?.values?.start_year}
-            type="number"
-            placeholder={"Enter the start year"}
+            name={"genre"}
+            value={formik?.values?.genre}
+            type="text"
+            placeholder={"e.g. Action, Adventure, crime"}
             onChange={formik?.handleChange}
             fullWidth
           />
+
+          <br />
+
+          <Typography variant="body1" pt={1} fontSize={"small"}>
+            Search Movies by their genre
+          </Typography>
         </AccordionDetails>
       </Accordion>
 
@@ -93,13 +136,18 @@ const SearchFilters = () => {
         </AccordionSummary>
         <AccordionDetails>
           <CustomTextField
-            name={"start_year"}
-            value={formik?.values?.start_year}
-            type="number"
-            placeholder={"Enter the start year"}
+            name={"language"}
+            value={formik?.values?.language}
+            type="text"
+            placeholder={"e.g. English, Spanish, French etc"}
             onChange={formik?.handleChange}
             fullWidth
           />
+          <br />
+
+          <Typography variant="body1" pt={1} fontSize={"small"}>
+            Search movies by languages
+          </Typography>
         </AccordionDetails>
       </Accordion>
 
@@ -113,13 +161,19 @@ const SearchFilters = () => {
         </AccordionSummary>
         <AccordionDetails>
           <CustomTextField
-            name={"start_year"}
-            value={formik?.values?.start_year}
-            type="number"
-            placeholder={"Enter the start year"}
+            name={"type"}
+            value={formik?.values?.type}
+            type="text"
+            placeholder={"e.g. Movies, TV Shows, Series etc"}
             onChange={formik?.handleChange}
             fullWidth
           />
+
+          <br />
+
+          <Typography variant="body1" fontSize={"small"} pt={1}>
+            Search movies by type and titles
+          </Typography>
         </AccordionDetails>
       </Accordion>
 
@@ -133,10 +187,10 @@ const SearchFilters = () => {
         </AccordionSummary>
         <AccordionDetails>
           <CustomTextField
-            name={"start_year"}
-            value={formik?.values?.start_year}
-            type="number"
-            placeholder={"Enter the start year"}
+            name={"sort"}
+            value={formik?.values?.sort}
+            type="text"
+            placeholder={"e.g: Latest"}
             onChange={formik?.handleChange}
             fullWidth
           />

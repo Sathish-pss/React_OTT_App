@@ -12,4 +12,6 @@ import axios from "axios";
 //   },
 // });
 
+console.log("API KEY", import.meta.env.RAPID_API_KEY);
+
 export default axiosConfig;

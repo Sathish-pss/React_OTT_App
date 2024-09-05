@@ -2,6 +2,7 @@ import React from "react";
 // Importing the Material UI Component here
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
+import { Typography } from "@mui/material";
 
 /**
  * @returns Reusable custom text field with props

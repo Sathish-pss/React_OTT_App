@@ -3,10 +3,7 @@ import React from "react";
 import { Paper } from "@mui/material";
 // Importing the components here
 import Movies from "./Movies";
-import {
-  useMoviesContext,
-  MoviesContextProvider,
-} from "./MoviesContextProvider";
+import { MoviesContextProvider } from "./MoviesContextProvider";
 
 /**
  *

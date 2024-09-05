@@ -41,10 +41,11 @@ const MoviesContextProvider = ({ children }) => {
   /**
    * UseEffect hook to fetch the data
    */
-  useEffect(() => {
-    fetchMoviesDetails();
-  }, []);
+  // useEffect(() => {
+  //   fetchMoviesDetails();
+  // }, []);
 
+  // console.log("API KEY", import.meta.env.RAPID_API_KEY);
   /**
    * Function to fetch the movies data from the rapid api
    */
@@ -71,7 +72,7 @@ const MoviesContextProvider = ({ children }) => {
     try {
       const response = await axios.request(options);
       if (response) {
-        setMoviesData(response?.data); // Setting the movies data here
+        setMoviesData(response?.data?.results); // Setting the movies data here
       } else {
         setMoviesData([]);
       }
@@ -79,6 +80,8 @@ const MoviesContextProvider = ({ children }) => {
       console.error("API ERR", error);
     }
   };
+
+  console.log("Movies Array", moviesData);
 
   return (
     <MoviesContext.Provider value={{ filterFormik, moviesData }}>
